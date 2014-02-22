@@ -31,6 +31,9 @@
   reportserver = <%= scope.lookupvar('puppet::server') %>
   summarize = true
   graph = true
+<%- if scope.lookupvar('puppet::options')['show_diff'] != '' -%>
+  factpath = <%=scope.lookupvar('puppet::options')['show_diff'] %>
+<%- end -%>
   listen = <%= scope.lookupvar('puppet::bool_listen') %>
   runinterval = <%= scope.lookupvar('puppet::runinterval') %>
   localconfig = $vardir/localconfig
